@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings Notifications</title>
+
+    <style>
+      .notification-container {
+        position: center;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      .notification-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .notifications {
+        margin-top: 10px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .notification {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .notification:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notification-container" id="notificationContainer">
+      <div class="notification-header">
+        <h3>Bookings Notifications</h3>
+        <button onclick="clearNotifications()">Clear All</button>
+      </div>
+      <div class="notifications" id="notifications">
+        <!-- Notifications will be dynamically added here -->
+      </div>
+    </div>
+
+    <script>
+      // Sample data for notifications (replace with actual data)
+      const notificationsData = [
+        { message: "Booking delay", timestamp: "2024-03-01 09:30" },
+        { message: "Booking confirmed", timestamp: "2024-03-01 10:00" },
+        { message: "Booking canceled", timestamp: "2024-03-01 11:15" },
+      ];
+
+      // Function to render notifications
+      function renderNotifications() {
+        const notificationsContainer = document.getElementById("notifications");
+        notificationsContainer.innerHTML = "";
+
+        notificationsData.forEach((notification) => {
+          const notificationElement = document.createElement("div");
+          notificationElement.classList.add("notification");
+          notificationElement.innerHTML = `
+      <p>${notification.message}</p>
+      <span>${notification.timestamp}</span>
+    `;
+          notificationsContainer.appendChild(notificationElement);
+        });
+      }
+
+      // Function to clear all notifications
+      function clearNotifications() {
+        const notificationsContainer = document.getElementById("notifications");
+        notificationsContainer.innerHTML = "";
+      }
+
+      // Render notifications when the page loads
+      window.onload = renderNotifications;
+    </script>
+  </body>
+</html>

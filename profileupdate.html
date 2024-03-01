@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile Options</title>
+    <style>
+      body {
+        background-image: url("worldwide-connection-blue-background-illustration-vector_53876-80910");
+      }
+
+      .profile-options {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-options h1 {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-options">
+      <h1>Profile Options</h1>
+      <ul>
+        <li>
+          <button id="edit-profile-btn">Edit Profile</button>
+        </li>
+        <li><button id="change-password-btn">Change Password</button></li>
+        <li><button id="logout-btn">Logout</button></li>
+      </ul>
+    </div>
+    <p>
+      settings
+      <a
+        href="C:\Users\ELCOT\homeserve\localservicesite\localbasedservice\templates\settings 8.html"
+        >user settings</a
+      >
+    </p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const editProfileBtn = document.getElementById("edit-profile-btn");
+        const changePasswordBtn = document.getElementById(
+          "change-password-btn"
+        );
+        const logoutBtn = document.getElementById("logout-btn");
+
+        editProfileBtn.addEventListener("click", function () {
+          // Implement edit profile functionality here
+          alert("Edit Profile button clicked");
+        });
+
+        changePasswordBtn.addEventListener("click", function () {
+          // Implement change password functionality here
+          alert("Change Password button clicked");
+        });
+
+        logoutBtn.addEventListener("click", function () {
+          // Implement logout functionality here
+          alert("Logout button clicked");
+        });
+      });
+    </script>
+  </body>
+</html>

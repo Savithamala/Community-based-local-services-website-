@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url("login.jpg"); /* C:\Community based local service */
+        background-size: cover;
+        margin: 20px;
+      }
+
+      .login-container {
+        width: 400px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .login-form {
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+ 
+        <img
+          src="C:\Users\ELCOT\Downloads\user-3296.png"
+          alt="User Avatar"
+          class="avatar"
+        />
+        <h2>User Login</h2>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+   
+        <button type="submit">Login</button>
+        <div
+          id="C:\Users\ELCOT\homeserve\localservicesite\localbasedservice\templates\service list1.html"
+        >
+          <!-- Include sign-in module here -->
+          <p>
+            Don't have an account?
+            <a
+              href="C:\Users\ELCOT\homeserve\localservicesite\localbasedservice\templates\signup.html"
+              >Sign up</a
+            >
+          </p>
+        </div>
+      </form>
+      <p>
+        LOGIN AS A CUSTOMER<a
+          href="C:\Users\ELCOT\homeserve\localservicesite\localbasedservice\templates\service list1.html"
+        >
+          Click here</a
+        >
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userLoginForm = document.getElementById("user-login-form");
+        const customerLoginForm = document.getElementById(
+          "customer-login-form"
+        );
+
+        userLoginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = userLoginForm.querySelector("#username").value;
+          const password = userLoginForm.querySelector("#password").value;
+
+          // Here you can perform validation and authentication logic
+          // For simplicity, let's just log the username and password for now
+          console.log(
+            "User Login - Username:",
+            username,
+            "Password:",
+            password
+          );
+
+          // You can redirect the user to a dashboard or another page upon successful login
+          // For example: window.location.href = "/dashboard";
+        });
+
+        customerLoginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const customerId =
+            customerLoginForm.querySelector("#customer-id").value;
+          const customerPassword =
+            customerLoginForm.querySelector("#customer-password").value;
+
+          // Here you can perform validation and authentication logic
+          // For simplicity, let's just log the customer ID and password for now
+          console.log(
+            "Customer Login - ID:",
+            customerId,
+            "Password:",
+            customerPassword
+          );
+
+          // You can redirect the customer to a dashboard or another page upon successful login
+          // For example: window.location.href = "/customer-dashboard";
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Service Feedback</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #e9e9e9;
+      }
+
+      .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #2196f3;
+        color: white;
+      }
+
+      .topnav .search-container {
+        float: right;
+      }
+
+      .topnav input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .topnav .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .topnav .search-container button:hover {
+        background: #ccc;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      form {
+        width: 80%;
+        margin: 0 auto;
+
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 20px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+
+      .rating {
+        text-align: center;
+      }
+
+      .star {
+        font-size: 24px;
+        cursor: pointer;
+        color: #ccc;
+      }
+
+      .star:hover,
+      .star.active {
+        color: #ffcc00;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="home.html">Home</a>
+      <a class="active" href="contact.html">Contact</a>
+      <a class="active" href="setting.html">Settings</a>
+      <a class="active" href="feedback.html">Feedback</a>
+      <a class="active" href="about.html">About</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <h1>Feedback Form</h1>
+    <form id="feedback-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="message">Feedback:</label><br />
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        cols="50"
+        required
+      ></textarea>
+      <br />
+
+      <div class="rating">
+        <span class="star" data-value="1">&#9734;</span>
+        <span class="star" data-value="2">&#9734;</span>
+        <span class="star" data-value="3">&#9734;</span>
+        <span class="star" data-value="4">&#9734;</span>
+        <span class="star" data-value="5">&#9734;</span>
+      </div>
+
+      <p id="ratingText">Rate this service</p>
+
+      <button type="button" onclick="submitFeedback()">Submit</button>
+    </form>
+
+    <script>
+      // JavaScript
+      const stars = document.querySelectorAll(".star");
+      const feedbackTextarea = document.getElementById("message");
+
+      function highlightStars(starValue) {
+        stars.forEach((star, index) => {
+          star.classList.toggle("active", index < starValue);
+        });
+      }
+
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          const value = parseInt(star.getAttribute("data-value"));
+          highlightStars(value);
+        });
+      });
+
+      function submitFeedback() {
+        const rating = document.querySelectorAll(".star.active").length;
+        const feedback = feedbackTextarea.value;
+        console.log("Rating:", rating);
+        console.log("Feedback:", feedback);
+        stars.forEach((star) => {
+          star.classList.remove("active");
+        });
+        feedbackTextarea.value = "";
+        alert("Feedback submitted successfully!");
+      }
+    </script>
+  </body>
+</html>

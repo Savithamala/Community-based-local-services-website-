@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Districts in Tamil Nadu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .search-results {
+        margin-top: 10px;
+      }
+
+      .district {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .district:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Search Districts in Tamil Nadu</h2>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Enter district name..."
+      />
+      <div id="searchResults" class="search-results">
+        <!-- Search results will be displayed here -->
+      </div>
+    </div>
+
+    <script>
+      const districts = [
+        "Ariyalur",
+        "Chengalpattu",
+        "Chennai",
+        "Coimbatore",
+        "Cuddalore",
+        "Dharmapuri",
+        "Dindigul",
+        "Erode",
+        "Kallakurichi",
+        "Kanchipuram",
+        "Kanyakumari",
+        "Karur",
+        "Krishnagiri",
+        "Madurai",
+        "Nagapattinam",
+        "Namakkal",
+        "Nilgiris",
+        "Perambalur",
+        "Pudukkottai",
+        "Ramanathapuram",
+        "Ranipet",
+        "Salem",
+        "Sivaganga",
+        "Tenkasi",
+        "Thanjavur",
+        "Theni",
+        "Thoothukudi",
+        "Tiruchirappalli",
+        "Tirunelveli",
+        "Tirupathur",
+        "Tiruppur",
+        "Tiruvallur",
+        "Thiruvannamalai",
+        "Tiruvarur",
+        "Vellore",
+        "Viluppuram",
+        "Virudhunagar",
+      ];
+
+      function searchDistricts() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.trim()
+          .toLowerCase();
+        const searchResultsContainer = document.getElementById("searchResults");
+        searchResultsContainer.innerHTML = "";
+
+        const filteredDistricts = districts.filter((district) => {
+          return district.toLowerCase().includes(searchQuery);
+        });
+
+        if (filteredDistricts.length === 0) {
+          const noResults = document.createElement("p");
+          noResults.textContent = "No districts found";
+          searchResultsContainer.appendChild(noResults);
+        } else {
+          filteredDistricts.forEach((district) => {
+            const districtElement = document.createElement("div");
+            districtElement.classList.add("district");
+            districtElement.textContent = district;
+            districtElement.addEventListener("click", () => {
+              alert(`You clicked on ${district}`);
+            });
+            searchResultsContainer.appendChild(districtElement);
+          });
+        }
+      }
+
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", searchDistricts);
+    </script>
+  </body>
+</html>

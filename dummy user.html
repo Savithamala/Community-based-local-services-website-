@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Users Nearby</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .search-results {
+        margin-top: 10px;
+      }
+
+      .user {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .user-details {
+        margin-bottom: 5px;
+      }
+
+      .user-details span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Search Users Nearby</h2>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Enter your place..."
+      />
+      <div id="searchResults" class="search-results">
+        <!-- Search results will be displayed here -->
+      </div>
+    </div>
+
+    <script>
+      // Dummy user data representing users nearby
+      const users = [
+        { name: "User 1", location: "Vellore", distance: "0.5 km" },
+        { name: "User 2", location: "Vellore", distance: "1.2 km" },
+        { name: "User 3", location: "Vellore", distance: "0.8 km" },
+        { name: "User 4", location: "Chennai", distance: "2.3 km" },
+        { name: "User 5", location: "Chennai", distance: "1.7 km" },
+        // Add more user data as needed
+      ];
+
+      function searchUsers() {
+        const place = document.getElementById("searchInput").value.trim();
+        const searchResultsContainer = document.getElementById("searchResults");
+        searchResultsContainer.innerHTML = "";
+
+        const filteredUsers = users.filter((user) => {
+          return user.location.toLowerCase() === place.toLowerCase();
+        });
+
+        if (filteredUsers.length === 0) {
+          const noResults = document.createElement("p");
+          noResults.textContent = "No users found nearby";
+          searchResultsContainer.appendChild(noResults);
+        } else {
+          filteredUsers.forEach((user) => {
+            const userElement = document.createElement("div");
+            userElement.classList.add("user");
+
+            const userDetails = document.createElement("div");
+            userDetails.classList.add("user-details");
+            userDetails.innerHTML = `<span>Name:</span> ${user.name}<br><span>Distance:</span> ${user.distance}`;
+
+            userElement.appendChild(userDetails);
+            searchResultsContainer.appendChild(userElement);
+          });
+        }
+      }
+
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", searchUsers);
+    </script>
+  </body>
+</html>

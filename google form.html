@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Request Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>user profile</h1>
+      <form id="user profile">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="contact">contact:</label>
+          <input type="number" id="contact" name="contact" required />
+        </div>
+        <div class="form-group">
+          <label for="service-type">Service Type:</label>
+          <select id="service-type" name="service-type" required>
+            <option value="">Select Service Type</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="painter">Painter</option>
+            <option value="gardening">Gardening</option>
+            <option value="Driver">Driver</option>
+            <option value="babysitter">Babysitter</option>
+            <option value="House cleaners">House cleaners</option>
+            <option value="Personal chef or caterers for events">
+              Personal chef or caterers for events
+            </option>
+            <!-- Add more service types as needed -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Address">Address:</label>
+          <textarea id="Address" name="Address" rows="4" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <p>
+      booking notification
+      <a
+        href="C:\Users\ELCOT\homeserve\localservicesite\localbasedservice\templates\notification.html"
+        >bookings</a
+      >
+    </p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("service-request-form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const name = form.querySelector("#name").value;
+          const email = form.querySelector("#email").value;
+          const serviceType = form.querySelector("#service-type").value;
+          const description = form.querySelector("#Address").value;
+
+          // Do something with form values (e.g., send to server, display confirmation message)
+          console.log(
+            "Form submitted with values:",
+            name,
+            email,
+            serviceType,
+            Address
+          );
+
+          // Clear form fields
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

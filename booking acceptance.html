@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings Acceptance</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      .booking-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .booking-card h3 {
+        margin-top: 0;
+      }
+
+      .booking-actions {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .accept-btn,
+      .reject-btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .accept-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .reject-btn {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="booking-card">
+        <h3>Booking 1</h3>
+        <p>Date: 2024-03-01</p>
+        <p>Time: 10:00 AM - 12:00 PM</p>
+        <p>Service: Plumbing</p>
+        <div class="booking-actions">
+          <button class="accept-btn" onclick="acceptBooking(1)">Accept</button>
+          <button class="reject-btn" onclick="rejectBooking(1)">Reject</button>
+        </div>
+      </div>
+
+      <div class="booking-card">
+        <h3>Booking 2</h3>
+        <p>Date: 2024-03-02</p>
+        <p>Time: 2:00 PM - 4:00 PM</p>
+        <p>Service: Electrician</p>
+        <div class="booking-actions">
+          <button class="accept-btn" onclick="acceptBooking(2)">Accept</button>
+          <button class="reject-btn" onclick="rejectBooking(2)">Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function acceptBooking(bookingId) {
+        alert("Booking #" + bookingId + " accepted!");
+        // Additional actions can be added here, e.g., updating backend
+      }
+
+      function rejectBooking(bookingId) {
+        alert("Booking #" + bookingId + " rejected!");
+        // Additional actions can be added here, e.g., updating backend
+      }
+    </script>
+  </body>
+</html>
